@@ -1,0 +1,8 @@
+assets
+node_modules
+.next
+.github
+.husky
+.direnv
+flake.lock
+flake.nix
