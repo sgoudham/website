@@ -3,8 +3,8 @@ import { GitHubSvg, InstagramSvg, LinkedInSvg, TwitterSvg } from "./Images";
 export const Footer = () => {
   return (
     <footer className="w-full bg-mantle text-subtext0 dark:text-overlay1">
-      <div className="flex flex-row justify-center items-center m-1 space-x-10 sm:space-x-20">
-        <div className="tracking-tight">Made With ❤️ By Goudham</div>
+      <div className="flex flex-row justify-center items-center space-x-10 sm:space-x-20">
+        <div>Made With ❤️ By Goudham</div>
         <div className="flex gap-3">
           <a
             className="group -m-1 p-1"

@@ -6,8 +6,8 @@ export const Projects = async () => {
   return (
     <section>
       <h2 className="font-extrabold text-xl mb-2 text-center">My Projects</h2>
-      <div className="overflow-y-auto max-h-52 sm:max-h-96 scroll-smooth rounded-lg">
-        <div className="m-3 flex flex-col space-y-6">
+      <div className="overflow-y-scroll scroll-smooth rounded-lg">
+        <div className="ml-3 mr-3 flex flex-col space-y-6">
           {projects.map((project) => (
             <Project key={project.name} project={project} />
           ))}

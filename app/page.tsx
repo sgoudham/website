@@ -6,7 +6,7 @@ import { Projects } from "./components/body/Projects";
 export default function Home() {
   return (
     <>
-      <div className="max-w-md flex flex-col space-y-10 grow mb-10">
+      <div className="max-w-md flex flex-col space-y-10 grow mt-10 mb-10">
         <Header />
         <About />
         <Projects />
