@@ -38,3 +38,12 @@ next-env.d.ts
 # nix
 .direnv/
 .envrc
+.env*
+
+# yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
