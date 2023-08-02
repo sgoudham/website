@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
+import { Footer } from "./components/Footer";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
   title: "Goudham - Software Engineer & Core Maintainer of Catppuccin",
   description: "Just a silly little guy living in a serious big world.",
   metadataBase: new URL("https://goudham.com"),
+  colorScheme: "light dark",
+  keywords: ["Next.js", "React", "JavaScript", "Catppuccin", "Goudham"],
   openGraph: {
     url: "https://goudham.com",
     title: "Goudham's Website",
@@ -30,9 +33,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${raleway.className} flex flex-col h-screen space-y-4 items-center latte dark:mocha bg-base dark:bg-crust text-text`}
+        className={`${raleway.className} latte dark:mocha bg-base dark:bg-crust text-text flex flex-col overflow-auto h-screen gap-y-10`}
       >
         {children}
+        <Footer/>
       </body>
     </html>
   );

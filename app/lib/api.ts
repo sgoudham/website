@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { Octokit, RequestError } from "octokit";
+import { Octokit } from "octokit";
 
 const octokit = new Octokit({
   auth: process.env.READ_ONLY_TOKEN,
@@ -16,8 +16,9 @@ export const fetchUserRepositories = async (
     },
     (response) =>
       response.data
-        .filter((data) => !data.fork)
+        .filter((data) => !data.fork && data.name !== "uwuifyy" && data.name !== "Enso-Bot" && !data.archived)
         .sort((a, b) => (b.stargazers_count ?? 0) - (a.stargazers_count ?? 0))
+        .slice(0, 6)
         .map((data) => {
           return {
             name: data.name,
