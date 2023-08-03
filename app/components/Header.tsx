@@ -1,12 +1,13 @@
-import { ProfilePictureCircle } from "./Images";
+import { ProfilePicture } from "./Images";
 
 export const Header = () => {
   return (
-    <div className="flex flex-col items-center">
-      <ProfilePictureCircle />
-      <span className="mt-2 text-2xl font-extrabold tracking-tight">
-        Hiya <div className="inline-block animate-waving-hand">👋</div>, I&#39;m Goudham
-      </span>
+    <div className="flex flex-col gap-y-2 items-center">
+      <ProfilePicture />
+      <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight">
+        Hiya <div className="inline-block animate-waving-hand">👋</div>, I&#39;m
+        Goudham
+      </h1>
     </div>
   );
 };

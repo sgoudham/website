@@ -2,9 +2,12 @@ import { GitHubSvg, InstagramSvg, LinkedInSvg, TwitterSvg } from "./Images";
 
 export const Footer = () => {
   return (
-    <footer className="w-full bg-mantle text-subtext0 dark:text-overlay1 sticky bottom-0">
-      <div className="flex flex-row justify-center items-center p-1 gap-x-10 sm:gap-x-20">
-        <p>Designed With ❤️ By Goudham</p>
+    <footer className="border-t-2 border-surface1 w-full text-subtext0 dark:text-overlay1">
+      <div className="flex flex-col justify-center items-center gap-y-6 pt-10 pb-20">
+        <div className="gap-y-3 text-center">
+          <p className="text-lg lg:text-xl xl:text-2xl">Designed With &#9829;</p>
+          <p className="text-md lg:text-lg xl:text-xl">&copy; {new Date().getFullYear()} Goudham Suresh</p>
+        </div>
         <div className="flex gap-3">
           <a
             className="group"
