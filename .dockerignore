@@ -6,3 +6,4 @@ node_modules
 .direnv
 flake.lock
 flake.nix
+*.md
