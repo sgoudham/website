@@ -12,7 +12,12 @@ RUN yarn add sharp
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
+
+# WARNING: This copies environment variables into the build. **Ensure that this is not the final layer of the image.**
+#   It's worth mentioning that this approach is not preferable. I'm just doing it for the sake of simplicity and because no one else has permissions to this repository.
+#   I believe the best approach for build time secrets is to use `buildkit` and `--secret` flags. (https://pythonspeed.com/articles/docker-build-secrets/)
 COPY . .
+
 RUN yarn build
 
 # Production Image
