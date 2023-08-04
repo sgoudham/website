@@ -18,6 +18,7 @@
           buildInputs = with pkgs; [
             nodejs_20
             (nodePackages.yarn.override {inherit nodejs_20;})
+            dive
           ];
         };
       }
