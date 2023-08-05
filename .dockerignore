@@ -7,3 +7,4 @@ node_modules
 flake.lock
 flake.nix
 *.md
+*.env.*
