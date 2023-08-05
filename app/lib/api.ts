@@ -2,21 +2,26 @@ import "dotenv/config";
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({
-  auth: process.env.READ_ONLY_TOKEN,
+  auth: process.env.REPOS_READ_ONLY,
 });
 
-export const fetchUserRepositories = async (
-  username: string
-): Promise<RepositoryData[]> => {
+export const fetchUserRepositories = async (): Promise<RepositoryData[]> => {
   return await octokit.paginate(
-    octokit.rest.repos.listForUser,
+    octokit.rest.repos.listForAuthenticatedUser,
     {
-      username: username,
       per_page: 100,
+      visibility: "public",
+      affiliation: "owner",
     },
     (response) =>
       response.data
-        .filter((data) => !data.fork && data.name !== "uwuifyy" && data.name !== "Enso-Bot" && !data.archived)
+        .filter(
+          (data) =>
+            !data.fork &&
+            data.name !== "uwuifyy" &&
+            data.name !== "Enso-Bot" &&
+            !data.archived
+        )
         .sort((a, b) => (b.stargazers_count ?? 0) - (a.stargazers_count ?? 0))
         .slice(0, 6)
         .map((data) => {
