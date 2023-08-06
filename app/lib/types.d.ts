@@ -4,6 +4,7 @@ type RepositoryData = {
   html_url: string;
   size?: number;
   archived?: boolean;
+  fork: boolean;
   stargazers_count?: number;
   open_issues_count?: number;
   created_at: string | null | undefined;

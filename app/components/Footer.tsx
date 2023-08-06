@@ -1,8 +1,9 @@
+import { Text } from "./utils/Text";
 import { GitHubSvg, InstagramSvg, LinkedInSvg, TwitterSvg } from "./Images";
 import Link from "next/link";
 
 export const Footer = () => {
-  console.log(process.env.NEXT_PUBLIC_IS_PREVIEW)
+  console.log(process.env.NEXT_PUBLIC_IS_PREVIEW);
   return (
     <footer className="border-t-2 border-surface1 w-full text-subtext0 dark:text-overlay1">
       <div className="flex flex-col justify-center items-center gap-y-6 pt-10 pb-20">
@@ -10,9 +11,7 @@ export const Footer = () => {
           <p className="text-lg lg:text-xl xl:text-2xl">
             Designed With &#9829;
           </p>
-          <p className="text-md lg:text-lg xl:text-xl">
-            &copy; {new Date().getFullYear()} Goudham Suresh
-          </p>
+          <Text>&copy; {new Date().getFullYear()} Goudham Suresh</Text>
         </div>
         {process.env.NEXT_PUBLIC_IS_PREVIEW && <PreviewBuild />}
         <SocialMediaIcons />
@@ -23,7 +22,7 @@ export const Footer = () => {
 
 const PreviewBuild = () => {
   return (
-    <div className="text-md lg:text-lg xl:text-xl text-center">
+    <Text className="text-center">
       <p className="text-peach">Preview Build</p>
       <p>
         GitHub SHA:{" "}
@@ -44,7 +43,7 @@ const PreviewBuild = () => {
         </Link>
       </p>
       <p>Build Num: #{process.env.NEXT_PUBLIC_BUILD_NUM}</p>
-    </div>
+    </Text>
   );
 };
 
