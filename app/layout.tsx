@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import { Footer } from "./components/Footer";
+import { NavBar } from "./components/Navigation";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -39,8 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${raleway.className} latte dark:mocha bg-base dark:bg-crust text-text flex flex-col overflow-auto h-screen gap-y-10 py-10`}
+        className={`${raleway.className} latte dark:mocha bg-base dark:bg-crust text-text flex flex-col overflow-auto h-screen gap-y-10 pb-10`}
       >
+        <NavBar/>
         {children}
         <Footer />
       </body>

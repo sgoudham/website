@@ -1,6 +1,12 @@
 import { Text } from "./utils/Text";
-import { GitHubSvg, InstagramSvg, LinkedInSvg, TwitterSvg } from "./Images";
+import {
+  GitHubSvg,
+  InstagramSvg,
+  LinkedInSvg,
+  TwitterSvg,
+} from "./icons/SocialMedia";
 import Link from "next/link";
+import { Heart } from "./icons/Heart";
 
 export const Footer = () => {
   console.log(process.env.NEXT_PUBLIC_IS_PREVIEW);
@@ -9,12 +15,12 @@ export const Footer = () => {
       <div className="flex flex-col justify-center items-center gap-y-6 pt-10 pb-20">
         <div className="gap-y-3 text-center">
           <p className="text-lg lg:text-xl xl:text-2xl">
-            Designed With &#9829;
+            Designed With <Heart />
           </p>
           <Text>&copy; {new Date().getFullYear()} Goudham Suresh</Text>
         </div>
         {process.env.NEXT_PUBLIC_IS_PREVIEW && <PreviewBuild />}
-        <SocialMediaIcons />
+        <SocialMediaRow />
       </div>
     </footer>
   );
@@ -47,7 +53,7 @@ const PreviewBuild = () => {
   );
 };
 
-const SocialMediaIcons = () => {
+const SocialMediaRow = () => {
   return (
     <div className="flex gap-3">
       <a
