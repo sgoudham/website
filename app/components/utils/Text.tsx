@@ -1,12 +1,14 @@
 export const FancyUnderline = ({
   decoration,
+  className,
   children,
 }: {
   decoration: string;
+  className?: string;
   children: React.ReactNode;
 }) => {
   return (
-    <span className={`underline font-semibold ${decoration} decoration-2`}>
+    <span className={`underline ${decoration} decoration-2 ${className ?? ""}`}>
       {children}
     </span>
   );

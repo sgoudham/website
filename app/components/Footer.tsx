@@ -1,4 +1,4 @@
-import { Text } from "./utils/Text";
+import { FancyUnderline, Text } from "./utils/Text";
 import {
   GitHubSvg,
   InstagramSvg,
@@ -11,7 +11,7 @@ import { Heart } from "./icons/Heart";
 export const Footer = () => {
   console.log(process.env.NEXT_PUBLIC_IS_PREVIEW);
   return (
-    <footer className="border-t-2 border-surface1 w-full text-subtext0 dark:text-overlay1">
+    <footer className="border-t-2 border-surface1 w-full text-subtext1">
       <div className="flex flex-col justify-center items-center gap-y-6 pt-10 pb-20">
         <div className="gap-y-3 text-center">
           <p className="text-lg lg:text-xl xl:text-2xl">
@@ -28,8 +28,10 @@ export const Footer = () => {
 
 const PreviewBuild = () => {
   return (
-    <Text className="text-center">
-      <p className="text-peach">Preview Build</p>
+    <div className="text-center text-md lg:text-lg xl:text-xl">
+      <FancyUnderline decoration="decoration-peach">
+        Preview Build
+      </FancyUnderline>
       <p>
         GitHub SHA:{" "}
         <Link
@@ -49,7 +51,7 @@ const PreviewBuild = () => {
         </Link>
       </p>
       <p>Build Num: #{process.env.NEXT_PUBLIC_BUILD_NUM}</p>
-    </Text>
+    </div>
   );
 };
 
