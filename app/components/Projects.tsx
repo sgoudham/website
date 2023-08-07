@@ -41,7 +41,7 @@ export const Project = ({ project }: { project: RepositoryData }) => {
         <div>
           <span className="font-semibold hover:underline">{project.name}</span>
           {project.description && (
-            <div className="text-sm lg:text-md xl:text-lg text-subtext0">
+            <div className="text-sm lg:text-md xl:text-lg text-subtext1">
               {project.description}
             </div>
           )}
