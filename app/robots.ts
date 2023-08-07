@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://goudham.com/sitemap.xml',
+    sitemap: process.env.NEXT_PUBLIC_IS_PREVIEW ? 'https://preview.goudham.com/sitemap.xml' : 'https://goudham.com/sitemap.xml',
   }
 }
