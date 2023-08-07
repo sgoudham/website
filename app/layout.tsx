@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: process.env.NEXT_PUBLIC_IS_PREVIEW
       ? "https://preview.goudham.com"
       : "https://goudham.com",
-    title: `Goudham's Website${process.env.IS_PREVIEW ?? " (Preview)"}`,
+    title: `Goudham's Website${process.env.NEXT_PUBLIC_IS_PREVIEW ? " (Preview)" : ""}`,
     description: "Just a silly little guy living in a serious big world",
     locale: "en_GB",
   },
