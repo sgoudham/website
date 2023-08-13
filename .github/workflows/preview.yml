@@ -1,0 +1,49 @@
+name: Publish Preview Image
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, "refactor/app-router"]
+    paths:
+      - "app/**"
+      - "next.config.js"
+      - "package.json"
+      - "tailwind.config.js"
+      - "Dockerfile"
+
+jobs:
+  push_to_registry:
+    name: Push Image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log Into Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Set Short SHA
+        id: short_sha
+        run: echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Build/Push Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          build-args: |
+            NEXT_PUBLIC_IS_PREVIEW=1
+            NEXT_PUBLIC_BUILD_SHA=${{ steps.short_sha.outputs.short_sha }}
+            NEXT_PUBLIC_BUILD_ID=${{ github.run_id }}
+            NEXT_PUBLIC_BUILD_NUM=${{ github.run_number }}
+          secrets: |
+            REPOS_READ_ONLY=${{ secrets.REPOS_READ_ONLY }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/website:preview
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

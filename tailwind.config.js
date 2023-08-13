@@ -1,40 +1,38 @@
+const plugin = require("tailwindcss/plugin");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './app/**/*.{js,ts,jsx,tsx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-
   theme: {
     extend: {
-      fontFamily: {
-        pacifico: ['var(--font-pacifico)', 'cursive']
-      },
-
-      "backgroundSize": {
-        "600": "600%"
+      keyframes: {
+        wave: {
+          "0%": { transform: "rotate(0.0deg)" },
+          "10%": { transform: "rotate(14deg)" },
+          "20%": { transform: "rotate(-8deg)" },
+          "30%": { transform: "rotate(14deg)" },
+          "40%": { transform: "rotate(-4deg)" },
+          "50%": { transform: "rotate(10.0deg)" },
+          "60%": { transform: "rotate(0.0deg)" },
+          "100%": { transform: "rotate(0.0deg)" },
+        },
       },
       animation: {
-        "bg-scroll": "bgscroll 15s ease infinite"
+        "waving-hand": "wave 2s linear infinite",
       },
-      keyframes: {
-        "bgscroll": {
-          "0%, 100%": {
-            "background-position": "0 50%"
-          },
-          "50%": {
-            "background-position": "100% 50%"
-          }
-        }
-      }
     },
   },
   plugins: [
-    require('@catppuccin/tailwindcss')({
-      prefix: false,
-      defaultFlavour: "mocha"
+    require("@catppuccin/tailwindcss")({
+      // which flavour of colours to use by default, in the `:root`
+      defaultFlavour: "latte",
     }),
-    require('tailwindcss-animate')
+    plugin(function ({ addVariant }) {
+      addVariant("hocus", ["&:hover", "&:focus"]);
+    }),
   ],
-}
+};

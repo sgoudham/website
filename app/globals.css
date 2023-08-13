@@ -1,0 +1,12 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :focus-visible {
+    outline: none;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+}

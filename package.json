@@ -1,31 +1,35 @@
 {
-  "name": "goudham",
+  "name": "website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:preview:build": "docker build --secret id=REPOS_READ_ONLY --build-arg='NEXT_PUBLIC_IS_PREVIEW=1' --build-arg='NEXT_PUBLIC_BUILD_SHA=5266152' --build-arg='NEXT_PUBLIC_BUILD_ID=4716419565' --build-arg='NEXT_PUBLIC_BUILD_NUM=1' -t website-preview .",
+    "docker:preview": "yarn docker:preview:build && docker run --rm -it -p 3000:3000 --name website website-preview:latest",
+    "docker:release:build": "docker build --secret id=REPOS_READ_ONLY -t website-release .",
+    "docker:release": "yarn docker:release:build && docker run --rm -it -p 3000:3000 --name website website-release:latest"
   },
   "dependencies": {
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.35",
-    "@types/react-dom": "18.0.11",
-    "autoprefixer": "^10.4.14",
-    "eslint": "8.38.0",
-    "eslint-config-next": "13.3.0",
-    "keen-slider": "^6.8.5",
-    "next": "13.3.0",
-    "next-seo": "^6.0.0",
-    "postcss": "8.4.21",
+    "@headlessui/react": "^1.7.16",
+    "@types/node": "20.4.5",
+    "@types/react": "18.2.17",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.12",
+    "next": "13.4.12",
+    "octokit": "^3.0.0",
+    "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwindcss": "3.3.1",
-    "tailwindcss-animate": "^1.0.5",
-    "typescript": "5.0.4"
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@catppuccin/tailwindcss": "^0.1.1"
-  }
+    "@catppuccin/tailwindcss": "^0.1.6"
+  },
+  "packageManager": "yarn@3.6.1"
 }
