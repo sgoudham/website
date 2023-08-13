@@ -8,6 +8,7 @@ import {
 } from "./icons/SocialMedia";
 import Link from "next/link";
 import { Heart } from "./icons/Heart";
+import { ExternalLink } from "./icons/ExternalLink";
 
 export const Footer = () => {
   return (
@@ -33,19 +34,25 @@ const BuildInfo = () => {
       <p>
         GitHub SHA:{" "}
         <Link
-          className="hocus:underline hocus:decoration-solid hocus:decoration-blue hocus:decoration-2"
+          rel="noopener noreferrer"
+          target="_blank"
+          className="hocus:underline hocus:decoration-solid hocus:underline-offset-1"
           href={`https://github.com/sgoudham/website/commit/${process.env.NEXT_PUBLIC_BUILD_SHA}`}
         >
           {process.env.NEXT_PUBLIC_BUILD_SHA}
+          <ExternalLink />
         </Link>
       </p>
       <p>
         Build ID:{" "}
         <Link
-          className="hocus:underline hocus:decoration-solid hocus:decoration-blue hocus:decoration-2"
+          rel="noopener noreferrer"
+          target="_blank"
+          className="hocus:underline hocus:decoration-solid hocus:underline-offset-1"
           href={`https://github.com/sgoudham/website/actions/runs/${process.env.NEXT_PUBLIC_BUILD_ID}`}
         >
           {process.env.NEXT_PUBLIC_BUILD_ID}
+          <ExternalLink />
         </Link>
       </p>
       <p>Build Num: #{process.env.NEXT_PUBLIC_BUILD_NUM}</p>
