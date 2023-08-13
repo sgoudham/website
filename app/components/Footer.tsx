@@ -39,7 +39,7 @@ const BuildInfo = () => {
           className="hocus:underline hocus:decoration-solid hocus:underline-offset-1"
           href={`https://github.com/sgoudham/website/commit/${process.env.NEXT_PUBLIC_BUILD_SHA}`}
         >
-          {process.env.NEXT_PUBLIC_BUILD_SHA}
+          {process.env.NEXT_PUBLIC_BUILD_SHA}&#8201;
           <ExternalLink />
         </Link>
       </p>
@@ -51,7 +51,7 @@ const BuildInfo = () => {
           className="hocus:underline hocus:decoration-solid hocus:underline-offset-1"
           href={`https://github.com/sgoudham/website/actions/runs/${process.env.NEXT_PUBLIC_BUILD_ID}`}
         >
-          {process.env.NEXT_PUBLIC_BUILD_ID}
+          {process.env.NEXT_PUBLIC_BUILD_ID}&#8201;
           <ExternalLink />
         </Link>
       </p>
