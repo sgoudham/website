@@ -29,14 +29,13 @@ export const Footer = () => {
 const BuildInfo = () => {
   return (
     <div className="text-center text-md lg:text-lg xl:text-xl">
-      <p className="text-lavender font-semibold">
+      <p className="text-blue font-semibold">
         {process.env.NEXT_PUBLIC_IS_PREVIEW ? "Preview" : "Release"} Build
       </p>
       <p>
         GitHub SHA:{" "}
         <Link
           className="hocus:underline hocus:decoration-solid hocus:decoration-blue hocus:decoration-2"
-          aria-label="View the GitHub commit for this build"
           href={`https://github.com/sgoudham/website/commit/${process.env.NEXT_PUBLIC_BUILD_SHA}`}
         >
           {process.env.NEXT_PUBLIC_BUILD_SHA}
@@ -46,7 +45,6 @@ const BuildInfo = () => {
         Build ID:{" "}
         <Link
           className="hocus:underline hocus:decoration-solid hocus:decoration-blue hocus:decoration-2"
-          aria-label="View the GitHub Actions run for this build"
           href={`https://github.com/sgoudham/website/actions/runs/${process.env.NEXT_PUBLIC_BUILD_ID}`}
         >
           {process.env.NEXT_PUBLIC_BUILD_ID}
