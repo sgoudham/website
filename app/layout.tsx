@@ -10,7 +10,7 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   title: "Goudham Suresh",
   description:
-    "Software Engineer @ BBC, Finalist for Scottish Graduate Apprentice of the Year 2023, and Core Maintainer @ Catppuccin",
+    "I am a software engineer by day, and an open source enthusiast by night. This is my corner of the internet where I write about my experiences, projects, and more.",
   keywords: ["Next.js", "React", "Typescript", "Catppuccin", "Goudham"],
   colorScheme: "light dark",
   metadataBase: new URL(
@@ -26,13 +26,17 @@ export const metadata: Metadata = {
       process.env.NEXT_PUBLIC_IS_PREVIEW ? " (Preview)" : ""
     }`,
     description:
-      "Software Engineer @ BBC, Finalist for Scottish Graduate Apprentice of the Year 2023, and Core Maintainer @ Catppuccin",
+      "I am a software engineer by day, and an open source enthusiast by night. This is my corner of the internet where I write about my experiences, projects, and more.",
     locale: "en_GB",
   },
   twitter: {
     creator: "@RealGoudham",
     card: "summary_large_image",
   },
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#11111b" },
+    { media: "(prefers-color-scheme: light)", color: "#eff1f5" },
+  ],
 };
 
 export default function RootLayout({

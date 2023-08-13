@@ -58,6 +58,7 @@ export const NavBar = () => {
           <Link
             href="/"
             // ref={focusedRef}
+            className="focus:outline-none"
             onClick={() => checkPath("/")}
           >
             &lt; Home /&gt;
@@ -65,6 +66,7 @@ export const NavBar = () => {
           <Link
             href="/projects"
             // ref={focusedRef}
+            className="focus:outline-none"
             onClick={() => checkPath("/projects")}
           >
             &lt; Projects /&gt;
