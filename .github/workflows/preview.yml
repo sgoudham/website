@@ -3,7 +3,7 @@ name: Publish Preview Image
 on:
   workflow_dispatch:
   push:
-    branches: [main, "refactor/app-router"]
+    branches: [main]
     paths:
       - "app/**"
       - "next.config.js"
