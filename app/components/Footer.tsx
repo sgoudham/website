@@ -29,7 +29,7 @@ export const Footer = () => {
 const BuildInfo = () => {
   return (
     <div className="text-center text-md lg:text-lg xl:text-xl">
-      <p className="text-blue font-semibold">
+      <p className="text-blue tracking-tight">
         {process.env.NEXT_PUBLIC_IS_PREVIEW ? "Preview" : "Release"} Build
       </p>
       <p>

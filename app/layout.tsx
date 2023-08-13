@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${raleway.className} latte dark:mocha bg-base dark:bg-crust text-text flex flex-col space-y-10 pb-10`}
+        className={`${raleway.className} latte dark:mocha bg-base dark:bg-crust text-text flex flex-col h-screen overflow-auto space-y-10 pb-10`}
       >
         {children}
         <Footer />

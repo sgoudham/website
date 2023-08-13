@@ -38,7 +38,7 @@ export const NavBar = () => {
       <Dialog
         className={
           isOpen
-            ? "block w-full h-screen absolute overflow-hidden inset-0 bg-crust z-10 flex-col items-center"
+            ? "block w-full h-screen absolute overflow-hidden inset-0 bg-base dark:bg-crust z-10 flex-col items-center"
             : "hidden"
         }
         open={isOpen}
