@@ -1,29 +1,76 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import { ProfilePicture } from "./images/ProfilePicture";
+import { Hamburger } from "./nav/Hamburger";
+import { Links } from "./nav/Links";
+import { Close } from "./icons/Close";
+import Link from "next/link";
+import { Dialog } from "@headlessui/react";
+import { usePathname } from "next/navigation";
 
 export const NavBar = () => {
+  const path = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+  const checkPath = (href: string) => {
+    if (href === path) {
+      setIsOpen(false);
+    }
+  };
+
   return (
-    <nav className="border-b-2 border-surface1">
-      <div className="flex flex-row items-center justify-center text-lg lg:text-xl xl:text-2xl">
-        <div className="p-2 flex flex-row gap-x-4 items-center tracking-tight font-bold">
+    <>
+      <nav className="self-center w-full max-w-xl lg:max-w-3xl xl:max-w-6xl">
+        <div className="p-4 flex flex-row items-center justify-between text-md lg:text-lg xl:text-xl">
           <ProfilePicture />
-          <Link href="/" className="transition duration-300 group">
-            <span className="group-hover:text-blue transition-all duration-300">
-              &lt; Home /&gt;
-            </span>
-            <span className="block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-blue duration-300"></span>
+          <div className="hidden md:flex flex-row gap-x-4 font-bold tracking-tight">
+            <Links />
+          </div>
+          <div
+            className="md:hidden px-4 py-2 hover:bg-crust dark:hover:bg-base rounded-lg"
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
+            <Hamburger />
+          </div>
+        </div>
+      </nav>
+
+      <Dialog
+        className={
+          isOpen
+            ? "block w-full h-screen absolute overflow-hidden inset-0 bg-crust z-10 flex-col items-center"
+            : "hidden"
+        }
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        // initialFocus={focusedRef}
+      >
+        <div className="p-4 w-full flex flex-row items-center justify-between">
+          <ProfilePicture />
+          <div
+            className="px-4 py-2 hover:bg-crust dark:hover:bg-base rounded-lg"
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
+            <Close />
+          </div>
+        </div>
+        <ul className="flex flex-col space-y-6 items-center text-2xl font-semibold justify-center">
+          <Link
+            href="/"
+            // ref={focusedRef}
+            onClick={() => checkPath("/")}
+          >
+            &lt; Home /&gt;
           </Link>
           <Link
             href="/projects"
-            className="transition duration-300 group"
+            // ref={focusedRef}
+            onClick={() => checkPath("/projects")}
           >
-            <span className="group-hover:text-blue transition-all duration-300">
-              &lt; Projects /&gt;
-            </span>
-            <span className="block max-w-0 group-hover:max-w-full transition-all h-0.5 bg-blue duration-300"></span>
+            &lt; Projects /&gt;
           </Link>
-        </div>
-      </div>
-    </nav>
+        </ul>
+      </Dialog>
+    </>
   );
 };

@@ -12,7 +12,7 @@ export const StyledLink = ({
   return (
     <Link
       href={href}
-      className={`font-medium text-blue underline text-lg lg:text-xl xl:text-2xl focus:outline-none focus:ring-1 focus:ring-blue ${
+      className={`font-medium text-blue underline text-lg lg:text-xl xl:text-2xl focus:ring-1 focus:ring-blue ${
         className ?? ""
       }`}
     >

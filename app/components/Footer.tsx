@@ -1,41 +1,42 @@
-import { FancyUnderline, Text } from "./utils/Text";
+import { Text } from "./utils/Text";
 import {
-  GitHubSvg,
-  InstagramSvg,
-  LinkedInSvg,
-  TwitterSvg,
+  GitHub,
+  Gitea,
+  Instagram,
+  LinkedIn,
+  Twitter,
 } from "./icons/SocialMedia";
 import Link from "next/link";
 import { Heart } from "./icons/Heart";
 
 export const Footer = () => {
-  console.log(process.env.NEXT_PUBLIC_IS_PREVIEW);
   return (
     <footer className="border-t-2 border-surface1 w-full text-subtext1">
-      <div className="flex flex-col justify-center items-center gap-y-6 pt-10 pb-20">
-        <div className="gap-y-3 text-center">
+      <div className="flex flex-col justify-center items-center space-y-6 pt-10 pb-20">
+        <div className="text-center">
           <p className="text-lg lg:text-xl xl:text-2xl">
             Designed With <Heart />
           </p>
           <Text>&copy; {new Date().getFullYear()} Goudham Suresh</Text>
         </div>
-        {process.env.NEXT_PUBLIC_IS_PREVIEW && <PreviewBuild />}
+        <BuildInfo />
         <SocialMediaRow />
       </div>
     </footer>
   );
 };
 
-const PreviewBuild = () => {
+const BuildInfo = () => {
   return (
     <div className="text-center text-md lg:text-lg xl:text-xl">
-      <FancyUnderline decoration="decoration-peach">
-        Preview Build
-      </FancyUnderline>
+      <p className="text-lavender font-semibold">
+        {process.env.NEXT_PUBLIC_IS_PREVIEW ? "Preview" : "Release"} Build
+      </p>
       <p>
         GitHub SHA:{" "}
         <Link
-          className="hover:underline"
+          className="hocus:underline hocus:decoration-solid hocus:decoration-blue hocus:decoration-2"
+          aria-label="View the GitHub commit for this build"
           href={`https://github.com/sgoudham/website/commit/${process.env.NEXT_PUBLIC_BUILD_SHA}`}
         >
           {process.env.NEXT_PUBLIC_BUILD_SHA}
@@ -44,7 +45,8 @@ const PreviewBuild = () => {
       <p>
         Build ID:{" "}
         <Link
-          className="hover:underline"
+          className="hocus:underline hocus:decoration-solid hocus:decoration-blue hocus:decoration-2"
+          aria-label="View the GitHub Actions run for this build"
           href={`https://github.com/sgoudham/website/actions/runs/${process.env.NEXT_PUBLIC_BUILD_ID}`}
         >
           {process.env.NEXT_PUBLIC_BUILD_ID}
@@ -57,34 +59,41 @@ const PreviewBuild = () => {
 
 const SocialMediaRow = () => {
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-3 items-center">
       <a
-        className="group"
+        className="group focus:ring-2 focus:ring-blue ring-offset-0"
         aria-label="Follow Me On GitHub"
         href="https://github.com/sgoudham"
       >
-        <GitHubSvg />
+        <GitHub />
       </a>
       <a
-        className="group"
+        className="group focus:ring-2 focus:ring-blue ring-offset-0"
+        aria-label="Visit My Gitea Instance"
+        href="https://gitea.goudham.com"
+      >
+        <Gitea />
+      </a>
+      <a
+        className="group focus:ring-2 focus:ring-blue ring-offset-0"
         aria-label="Follow Me On LinkedIn"
         href="https://linkedin.com/in/sgoudham"
       >
-        <LinkedInSvg />
+        <LinkedIn />
       </a>
       <a
-        className="group"
+        className="group focus:ring-2 focus:ring-blue ring-offset-0"
         aria-label="Follow Me On Twitter"
         href="https://twitter.com/RealGoudham"
       >
-        <TwitterSvg />
+        <Twitter />
       </a>
       <a
-        className="group"
+        className="group focus:ring-2 focus:ring-blue ring-offset-0"
         aria-label="Follow Me On Instagram"
         href="https://instagram.com/sgoudham"
       >
-        <InstagramSvg />
+        <Instagram />
       </a>
     </div>
   );

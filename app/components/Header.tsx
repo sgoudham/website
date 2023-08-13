@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <H1>
       Hiya{" "}
-      <div className="inline-block animate-waving-hand">
+      <div className="inline-block motion-safe:animate-waving-hand">
         <Wave />
       </div>
       , I&#39;m Goudham

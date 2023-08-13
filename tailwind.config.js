@@ -1,3 +1,5 @@
+const plugin = require("tailwindcss/plugin");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -28,6 +30,9 @@ module.exports = {
     require("@catppuccin/tailwindcss")({
       // which flavour of colours to use by default, in the `:root`
       defaultFlavour: "latte",
+    }),
+    plugin(function ({ addVariant }) {
+      addVariant("hocus", ["&:hover", "&:focus"]);
     }),
   ],
 };
