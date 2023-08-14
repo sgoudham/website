@@ -2,7 +2,7 @@ import { fetchUserRepositories } from "../lib/api";
 import { Project } from "../components/Projects";
 import { Text } from "../components/utils/Text";
 import { H1 } from "../components/utils/Titles";
-import { NavBar } from "../components/Navigation";
+import { Navbar } from "../components/nav/Navbar";
 
 export default async function Projects() {
   const projects = await fetchUserRepositories().then((res) =>
@@ -14,7 +14,7 @@ export default async function Projects() {
   return (
     /* Inherits from the RootLayout */
     <div className="flex flex-col">
-      <NavBar />
+      <Navbar />
       <div className="self-center max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-4xl flex flex-col space-y-10 grow">
         <H1>All Projects</H1>
         <div className="flex flex-col mx-3 gap-3 text-center">
