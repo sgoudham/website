@@ -1,5 +1,9 @@
 import { Octokit } from "octokit";
 
+if (!process.env.REPOS_READ_ONLY) {
+  throw new Error("GITHUB TOKEN 'REPOS_READ_ONLY' is missing");
+}
+
 const octokit = new Octokit({
   auth: process.env.REPOS_READ_ONLY,
 });
