@@ -29,6 +29,7 @@ export const NavBar = () => {
           </div>
           <button
             className="md:hidden px-4 py-2 hover:bg-crust dark:hover:bg-base rounded-lg"
+            aria-label="Open Menu"
             onClick={() => setIsOpen((prev) => !prev)}
           >
             <Hamburger />
