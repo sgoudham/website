@@ -15,13 +15,13 @@ have much experience with the tech stack that I've chosen here or even front-end
 I hope this maybe, just maybe inspires someone else to just throw themselves into a project and have some fun along the
 way :D
 
-Also, *technically*, this is a **work-in-progress** but shh...
+Also, _technically_, this is a **work-in-progress** but shh...
 
 ## Dependencies
 
-- NodeJS 18
+- NodeJS 20
 - Yarn
-- **(Optional)** Container Orchestration Tool (e.g Docker)
+- **(Optional)** Container Orchestration Tool (e.g. Docker)
 
 If you're a ~~filthy~~ [Nix/NixOS](https://nixos.org/) user, you can take advantage of the [flake.nix](flake.nix) by
 running `nix develop` to automatically get a shell with all the required dependencies.
@@ -44,27 +44,21 @@ running `nix develop` to automatically get a shell with all the required depende
    provided [Dockerfile](Dockerfile):
 
    ```shell
-   docker build -t website .
-   docker run --rm -it -p 3000:3000 --name website website:latest
+   yarn docker:preview # or yarn docker:release
    ```
 
 ## Deployment
 
 This is mostly for me when I revisit this godforsaken project in 7 months having forgotten everything :P
 
-This repository has a [publish.yml](.github/workflows/publish.yml) action which automatically builds
-the [Dockerfile](Dockerfile) and pushes
-to [Docker Hub](https://hub.docker.com/repository/docker/sgoudham/website/general) with the latest updates. This image
-is then automatically retrieved by [Watchtower](https://containrrr.dev/watchtower/) on my server which automatically
-replaces the production docker container, therefore deploying the new updates to production. (In the future, I may
-switch this workflow to only use [Portainer](https://www.portainer.io/).)
+This repository has 2 workflow files:
 
-### Manual Commands
-
-```shell
-docker tag website:latest sgoudham/website:latest
-docker push sgoudham/website:latest
-```
+- **[preview.yml](.github/workflows/preview.yml)** - This workflow is triggered on every pushed commit to the main branch.
+  - The website is built and deployed to docker hub as `sgoudham/website:preview`
+  - My server automatically pulls the latest image from the `preview` tag and deploys it under `https://preview.goudham.com`.
+- **[release.yml](.github/workflows/release.yml)** - This workflow is triggered on any pushed tag.
+  - The website is built and deployed to docker hub as `sgoudham/website:<tag>`.
+  - My server automatically pulls the latest tag `<tag>` and deploys it under `https://goudham.com`.
 
 ## Contributing
 
