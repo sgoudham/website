@@ -5,6 +5,7 @@ import {
   Instagram,
   LinkedIn,
   Twitter,
+  Twitch,
 } from "./icons/SocialMedia";
 import Link from "next/link";
 import { Heart } from "./icons/Heart";
@@ -97,6 +98,13 @@ const SocialMediaRow = () => {
         href="https://instagram.com/sgoudham"
       >
         <Instagram />
+      </a>
+      <a
+        className="group focus:ring-2 focus:ring-blue ring-offset-0"
+        aria-label="Yes, I Stream On Twitch"
+        href="https://twitch.tv/goudham"
+      >
+        <Twitch />
       </a>
     </div>
   );
