@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "docker:preview:build": "docker build --secret id=REPOS_READ_ONLY --build-arg='NEXT_PUBLIC_IS_PREVIEW=1' --build-arg='NEXT_PUBLIC_BUILD_SHA=5266152' --build-arg='NEXT_PUBLIC_BUILD_ID=4716419565' --build-arg='NEXT_PUBLIC_BUILD_NUM=1' -t website-preview .",
+    "docker:preview:build": "docker build --build-arg='NEXT_PUBLIC_IS_PREVIEW=1' --build-arg='NEXT_PUBLIC_BUILD_NUM=1' -t website-preview .",
     "docker:preview": "yarn docker:preview:build && docker run --rm -it -p 3000:3000 --name website website-preview:latest",
-    "docker:release:build": "docker build --secret id=REPOS_READ_ONLY --build-arg='NEXT_PUBLIC_BUILD_SHA=5266152' --build-arg='NEXT_PUBLIC_BUILD_ID=4716419565' --build-arg='NEXT_PUBLIC_BUILD_NUM=1' -t website-release .",
+    "docker:release:build": "docker build -t website-release .",
     "docker:release": "yarn docker:release:build && docker run --rm -it -p 3000:3000 --name website website-release:latest"
   },
   "dependencies": {
@@ -31,5 +31,5 @@
   "devDependencies": {
     "@catppuccin/tailwindcss": "^0.1.6"
   },
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@4.5.1"
 }

@@ -1,7 +1,7 @@
 export const Wave = () => {
   return (
     <svg
-      className="h-9 w-9 lg:h-10 lg:w-10 xl:h-12 xl:w-12 inline-block align-bottom text-peach"
+      className="h-9 w-9 lg:h-10 lg:w-10 xl:h-11 xl:w-11 2xl:h-14 2xl:w-14 inline-block align-bottom text-peach"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 256 256"
     >
