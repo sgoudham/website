@@ -27,5 +27,4 @@ jobs:
         with:
           context: .
           push: true
-          build-args: |
           tags: ${{ secrets.DOCKER_USERNAME }}/website:${{ github.ref_name }}
