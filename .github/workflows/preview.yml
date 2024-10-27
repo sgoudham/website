@@ -28,10 +28,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
-      - name: Set Short SHA
-        id: short_sha
-        run: echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-
       - name: Build/Push Image
         uses: docker/build-push-action@v4
         with:
@@ -39,11 +35,6 @@ jobs:
           push: true
           build-args: |
             NEXT_PUBLIC_IS_PREVIEW=1
-            NEXT_PUBLIC_BUILD_SHA=${{ steps.short_sha.outputs.short_sha }}
-            NEXT_PUBLIC_BUILD_ID=${{ github.run_id }}
-            NEXT_PUBLIC_BUILD_NUM=${{ github.run_number }}
-          secrets: |
-            REPOS_READ_ONLY=${{ secrets.REPOS_READ_ONLY }}
           tags: ${{ secrets.DOCKER_USERNAME }}/website:preview
           cache-from: type=gha
           cache-to: type=gha,mode=max
