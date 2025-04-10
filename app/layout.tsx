@@ -12,17 +12,10 @@ export const metadata: Metadata = {
     "Software Engineer at the BBC, Core Maintainer for Catppuccin. Ultimately trying to write code that I don't hate and take photos that I'm proud of.",
   keywords: ["Next.js", "React", "Typescript", "Catppuccin", "Goudham"],
   colorScheme: "light dark",
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_IS_PREVIEW
-      ? "https://preview.goudham.com"
-      : "https://goudham.com"
-  ),
+  metadataBase: new URL("https://goudham.com"),
   openGraph: {
-    url: process.env.NEXT_PUBLIC_IS_PREVIEW
-      ? "https://preview.goudham.com"
-      : "https://goudham.com",
-    title: `Goudham Suresh${process.env.NEXT_PUBLIC_IS_PREVIEW ? " (Preview)" : ""
-      }`,
+    url: "https://goudham.com",
+    title: `Goudham Suresh`,
     description:
       "Software Engineer at the BBC, Core Maintainer for Catppuccin. Ultimately trying to write code that I don't hate and take photos that I'm proud of.",
     locale: "en_GB",
