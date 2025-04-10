@@ -4,11 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - "app/**"
-      - "next.config.js"
-      - "package.json"
-      - "tailwind.config.js"
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
@@ -25,9 +22,9 @@ jobs:
         with:
           cache: pnpm
           node-version: 20
-      
+
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
-      
+
       - name: Build Website
         run: pnpm build
