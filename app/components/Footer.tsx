@@ -33,13 +33,6 @@ const SocialMediaRow = () => {
       </a>
       <a
         className="group focus:ring-2 focus:ring-blue ring-offset-0"
-        aria-label="Visit My Gitea Instance"
-        href="https://gitea.goudham.com"
-      >
-        <Gitea />
-      </a>
-      <a
-        className="group focus:ring-2 focus:ring-blue ring-offset-0"
         aria-label="Follow Me On LinkedIn"
         href="https://linkedin.com/in/sgoudham"
       >
