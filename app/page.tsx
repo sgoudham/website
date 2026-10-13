@@ -17,7 +17,7 @@ export default function Home() {
           <Text>
             I am a{" "}
             <FancyUnderline className="font-semibold" decoration="decoration-peach">
-              Software Engineer at the BBC
+              Principal Software Engineer at the BBC
             </FancyUnderline>.{" "}
             I obtained my degree while working full-time, you can learn
             more about that by visiting{" \""}
